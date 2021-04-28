@@ -1,24 +1,28 @@
 from tkinter import *
 from tkinter import messagebox
 from random import randint
-from time import sleep
+
 
 
 def pressKey(event):
     # print(f"Клавиша: {event.keycode}, символ {event.char.upper()}")
-    # CTRL
+    # CTRL - показываем слово
     if event.keycode == 17:
         wordLabel["text"] = wordComp
-    '''    sleep(1)
-    wordLabel["text"] = len(wordComp) * "*"'''
+        def do_sth():
+            wordLabel["text"] = len(wordComp) * "*"
+
+        root.after(1000, do_sth)
+        root.update()
     ch = event.char.upper()
     if len(ch) == 0:
         return 0
 
     codeBtn = ord(ch) - st
-    if codeBtn >= 0 and codeBtn <= 32 or codeBtn == -944:
+    print(codeBtn)
+    if codeBtn >= 0 and codeBtn <= 32 or codeBtn == -15:
         # Буква Ё
-        if codeBtn == -944:
+        if codeBtn == -15:
             pressLetter(-15)
         else:
             pressLetter(codeBtn)
